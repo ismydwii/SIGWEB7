@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Leaflet Web Map</title>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+<style>
+     #map {
+     width: 1500px;
+     height: 750px;
+     }
+</style>
+</head>
+<body>
+     <div id="map"></div>
+     <script> src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"</script>
+     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script>
+     var map = L.map('map',{
+        center: [-7.79558, 110.36949],
+        zoom: 12
+     });
+
+     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap </a> contributors'
+    }).addTo(map);
+     var marker = L.marker([-7.7639847, 110.3704093]).bindPopup('Teknik Geodesi UGM').addTo(map);
+     var marker = L.marker([-7.759350, 110.371041]).bindPopup('Kos Putri Inung 2').addTo(map);
+
+     L.Routing.control({
+     waypoints: [
+     L.latLng(-7.759350, 110.371041),
+     L.latLng(-7.7639847, 110.3704093)
+     ]
+     }).addTo(map);
+    </script>
+</body>
+</html>
+
+
+
+
